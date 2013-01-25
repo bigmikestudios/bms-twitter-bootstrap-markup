@@ -69,13 +69,14 @@ function tbmu_span ($atts, $content=null)
 {
 	extract( shortcode_atts( array(
       'cols' => '1',
+	  'offset' => '0',
       ), $atts ) );
 	
 	$content = ltrim($content, "</p>");
 	$content = rtrim($content, "<p>");	
 	
 	$return = "";
-	$return .= "<div class='span$cols'>";
+	$return .= "<div class='span$cols offset$offset'>";
 	$return .= do_shortcode($content);
 	$return .= "</div><!-- /.span$cols -->\n";
 	//error_log("===================== tbmu span called! \n$return");
